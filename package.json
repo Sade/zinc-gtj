@@ -1,0 +1,42 @@
+{
+  "name": "zinc-gtj",
+  "version": "1.0.0",
+  "description": "Les Zinc sur la GTJ",
+  "main": "entry.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "deploy": "gh-pages -d build",
+    "stats": "webpack --profile --json > stats.json"
+  },
+  "author": "Guillaume Bouillon <Sade@users.noreply.github.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sade/zinc-gtj.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sade/zinc-gtj/issues"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.9",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "gh-pages": "^0.11.0",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^3.8.0",
+    "purecss": "^0.6.0",
+    "purifycss-webpack-plugin": "^2.0.3",
+    "sass-loader": "^4.0.0",
+    "scss-loader": "0.0.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0",
+    "webpack-validator": "^2.2.2"
+  },
+  "dependencies": {
+    "purecss": "^0.6.0",
+    "react": "^15.2.1"
+  }
+}
