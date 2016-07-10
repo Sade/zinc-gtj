@@ -1,0 +1,2 @@
+webpackJsonp([0,3],{0:function(n,e,t){t(1);var c=t(29);document.body.appendChild(c())},29:function(n,e){n.exports=function(){var n=document.createElement("h1");return n.className="pure-button",n.innerHTML="Les Zinc sur la GTJ",n}}});
+//# sourceMappingURL=app.0db8fd79b300fb7a26d9.js.map
