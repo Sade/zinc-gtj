@@ -4,8 +4,7 @@ import React from 'react';
 
 const Button = React.createClass({
     handleClick() {
-        console.log('clicked');
-        this.props.onClick(this.props.address);
+        console.log('visit: %s',this.props.url);
     },
 
     render: function () {
@@ -13,7 +12,7 @@ const Button = React.createClass({
             React.createElement('button', {
                 onClick: this.handleClick,
                 className: 'btn-primary'
-            }, 'Click me!')
+            }, this.props.title)
         );
     }
 });

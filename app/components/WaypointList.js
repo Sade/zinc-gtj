@@ -15,7 +15,7 @@ const WaypointList = React.createClass({
     componentDidMount: function () {
         const _this = this;
 
-        this.serverRequest = fetch('../gpx/track.gpx', {
+        this.serverRequest = fetch(this.props.source, {
             method: 'get',
             headers: {
                 'Accept': 'application/gpx+xml',
@@ -34,7 +34,8 @@ const WaypointList = React.createClass({
             });
 
         }).catch(function (err) {
-            console.log('err', err);
+            //console.error('err', err);
+            return null;
         });
     },
 

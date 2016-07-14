@@ -8,7 +8,7 @@ import Button from './Button';
 const App = React.createClass({
     getInitialState: function () {
         return {
-            gpxFile: '../gpx/track.gpx1'
+            gpxFile: '../gpx/track.gpx'
         };
     },
 
