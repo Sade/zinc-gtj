@@ -24,6 +24,9 @@ const common = {
         app: PATHS.app,
         vendor: Object.keys(pkg.dependencies)
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     output: {
         path: PATHS.build,
         // Tweak this to match your GitHub project name
@@ -59,6 +62,7 @@ switch (process.env.npm_lifecycle_event) {
                 name: 'vendor',
                 entries: ['react']
             }),
+            parts.babelJS(PATHS.app),
             parts.setupHTML(pkg),
             parts.extractCSS(PATHS.style),
             parts.purifyCSS([PATHS.app]),
@@ -71,6 +75,7 @@ switch (process.env.npm_lifecycle_event) {
             {
                 devtool: 'eval-source-map'
             },
+            parts.babelJS(PATHS.app),
             parts.setupHTML(pkg),
             parts.extractCSS(PATHS.style),
             parts.devServer({

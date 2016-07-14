@@ -97,7 +97,9 @@ exports.setupHTML = function (options) {
     return {
         plugins: [
             new HtmlWebpackPlugin({
-                title: options.description
+                title: options.description,
+                appMountId: "app",
+                template: './libs/index-tpl.ejs'
             })
         ]
     };
@@ -124,6 +126,22 @@ exports.extractCSS = function (paths) {
             // Output extracted CSS to a file
             new ExtractTextPlugin('[name].[chunkhash].css')
         ]
+    };
+};
+
+exports.babelJS = function (paths) {
+    return {
+        module: {
+            loaders: [{
+                test: /\.jsx?/,
+                loader: 'babel',
+                include: paths,
+                exclude: /(node_modules|bower_components)/,
+                query: {
+                    presets: ['es2015', 'react']
+                }
+            }]
+        }
     };
 };
 
