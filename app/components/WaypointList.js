@@ -8,7 +8,8 @@ import WaypointItem from './WaypointItem';
 const WaypointList = React.createClass({
     getInitialState: function () {
         return {
-            data: []
+            data: [],
+            status: 'Chargement...'
         };
     },
 
@@ -29,12 +30,15 @@ const WaypointList = React.createClass({
             const parser = new xml2js.Parser();
             parser.parseString(returnedValue, function (err, result) {
                 _this.setState({
-                    data: result.gpx.trk[0].trkseg[0].trkpt
+                    data: result.gpx.trk[0].trkseg[0].trkpt,
+                    status: null
                 });
             });
 
         }).catch(function (err) {
-            //console.error('err', err);
+            this.setState({
+                status: err
+            });
             return null;
         });
     },
@@ -44,14 +48,18 @@ const WaypointList = React.createClass({
     },
 
     render: function () {
-        const waypointsNodes = this.state.data.map(function (data, i) {
-            return (<WaypointItem key={i} data={data} />);
+        const waypointsNodes = this.state.data.map(function (item, i) {
+            return (<WaypointItem key={i} data={item}/>);
         });
 
         return (
-            <ul className="waypoint-list">
-                {waypointsNodes}
-            </ul>
+            <div className="waypoint">
+                <h2>Waypoint</h2>
+                <ul className="waypoint-list">
+                    {this.state.status}
+                    {waypointsNodes}
+                </ul>
+            </div>
         );
     }
 });

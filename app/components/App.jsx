@@ -3,6 +3,7 @@
 import React from 'react';
 
 import WaypointList from './WaypointList';
+import SlideList from './SlideList';
 import Button from './Button';
 
 const App = React.createClass({
@@ -15,8 +16,10 @@ const App = React.createClass({
     render: function () {
         return (
             <div className="container">
-                <Button url="https://sade.github.io/zinc-gtj/" title="My Github demo !" />
-                <WaypointList source={this.state.gpxFile} />
+                <h1>Les zinc sur la GTJ</h1>
+                <Button url="https://sade.github.io/zinc-gtj/" title="My Github demo !"/>
+                <SlideList />
+                <WaypointList source={this.state.gpxFile}/>
             </div>
         );
     }
